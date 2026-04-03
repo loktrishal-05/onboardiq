@@ -1,0 +1,181 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.625rem;
+
+    /* OnboardIQ Dark Theme — deep navy enterprise */
+    --background: 0.095 0.028 261;
+    --foreground: 0.96 0.01 255;
+    --card: 0.135 0.032 261;
+    --card-foreground: 0.96 0.01 255;
+    --popover: 0.16 0.034 261;
+    --popover-foreground: 0.96 0.01 255;
+    --primary: 0.55 0.21 258;
+    --primary-foreground: 0.985 0 0;
+    --secondary: 0.165 0.032 261;
+    --secondary-foreground: 0.85 0.01 255;
+    --muted: 0.165 0.028 261;
+    --muted-foreground: 0.62 0.02 255;
+    --accent: 0.72 0.12 82;
+    --accent-foreground: 0.12 0.02 261;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.22 0.03 261;
+    --input: 0.22 0.03 261;
+    --ring: 0.55 0.21 258;
+
+    /* Brand tokens */
+    --navy-bg: 0.095 0.028 261;
+    --navy-card: 0.135 0.032 261;
+    --navy-border: 0.22 0.03 261;
+    --brand-blue: 0.55 0.21 258;
+    --brand-blue-light: 0.68 0.18 258;
+    --brand-blue-dim: 0.22 0.08 258;
+    --gold: 0.72 0.12 82;
+    --gold-light: 0.88 0.08 82;
+    --gold-dim: 0.45 0.09 82;
+
+    --chart-1: 0.646 0.222 41.116;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    --sidebar: 0.135 0.032 261;
+    --sidebar-foreground: 0.96 0.01 255;
+    --sidebar-primary: 0.55 0.21 258;
+    --sidebar-primary-foreground: 0.985 0 0;
+    --sidebar-accent: 0.165 0.032 261;
+    --sidebar-accent-foreground: 0.85 0.01 255;
+    --sidebar-border: 0.22 0.03 261;
+    --sidebar-ring: 0.55 0.21 258;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Plus Jakarta Sans", sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: "Plus Jakarta Sans", sans-serif;
+  }
+
+  .font-body {
+    font-family: "Inter", sans-serif;
+  }
+
+  /* Gold glow effect */
+  .glow-gold {
+    box-shadow: 0 0 0 1px oklch(0.72 0.12 82 / 0.4), 0 0 16px
+      oklch(0.72 0.12 82 / 0.15);
+  }
+
+  /* Blue glow effect */
+  .glow-blue {
+    box-shadow: 0 0 0 1px oklch(0.55 0.21 258 / 0.4), 0 0 16px
+      oklch(0.55 0.21 258 / 0.15);
+  }
+
+  /* Card hover transition */
+  .card-hover {
+    transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s
+      ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Progress ring animation */
+  @keyframes progress-ring {
+    from {
+      stroke-dashoffset: 565;
+    }
+  }
+
+  .animate-progress-ring {
+    animation: progress-ring 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  /* Slide in from left */
+  @keyframes slide-in-left {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Slide in from bottom */
+  @keyframes slide-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-in-left {
+    animation: slide-in-left 0.4s ease forwards;
+  }
+
+  .animate-slide-in-up {
+    animation: slide-in-up 0.4s ease forwards;
+  }
+
+  /* Fade in */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.5s ease forwards;
+  }
+
+  /* Timeline dot pulse */
+  @keyframes pulse-gold {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 oklch(0.72 0.12 82 / 0.4);
+    }
+    50% {
+      box-shadow: 0 0 0 6px oklch(0.72 0.12 82 / 0);
+    }
+  }
+
+  .animate-pulse-gold {
+    animation: pulse-gold 2s infinite;
+  }
+}
